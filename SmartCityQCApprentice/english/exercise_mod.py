@@ -30,6 +30,6 @@ exercise_type_dict={ "0.1": 'number',
                      "9.3": 'intlist',
                      "10.1": 'intlist',
                      "11.1": 'intlist',
-                     "12.1": 'intlist'
-                    
+                     "12.1": 'intlist',
+                     "13.1": 'file'
               }

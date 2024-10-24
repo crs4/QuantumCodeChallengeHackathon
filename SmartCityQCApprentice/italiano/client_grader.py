@@ -25,7 +25,7 @@ class Crs4GraderClient(QbraidClient):
         self._endpoint = "/crs4"
         self.session.add_user_agent(self.__class__.__name__)
         self.cath_num=["float_list","cplx_list", "intlist", 'nparray', 'nparray_nulti']
-        self.cath_files=[]
+        self.cath_files=["file"]
         self.cath_dict=[ "qubo_sol"]
         self.cath_pickle=[]
         
@@ -43,6 +43,7 @@ class Crs4GraderClient(QbraidClient):
         c.append(isinstance(data,list) and isinstance(data[0], complex) and exercise_type == "cplx_list")
         c.append(isinstance(data,list) and exercise_type == "nparray")
         c.append(isinstance(data,list) and  isinstance(data[0], list) and exercise_type == "nparray_multi")
+        c.append(isinstance(data,str) and exercise_type == "file")
         if  any(c):
             logger.info("The type of the response you provided is correct")
         else:
@@ -59,10 +60,14 @@ class Crs4GraderClient(QbraidClient):
             data = str(data)
         if exercise_type in self.cath_pickle:
             data=str(os.path.abspath(data))
-        files = {'file': data} if (exercise_type in self.cath_files )  else None
-        payload = {'type': exercise_type, 'data': data if not (exercise_type in self.cath_files)  else None, 'team_name':team, 'task_num':quiz }
+        if exercise_type in self.cath_files:
+            if not os.path.exists(data):
+                logger.error(f"File {data} does not exist")
+                raise FileNotFoundError(f"File {data} does not exist")
+            data=str(data)
+        payload = {'type': exercise_type, 'data': data,'team_name':team, 'task_num':quiz }
         try:
-            response = self.session.post(url, json=payload, files=files)
+            response = self.session.post(url, json=payload)
             result = response.json()
             logger.info(f"Job completed successfully: {result}")
             return result

@@ -58,3 +58,13 @@ Both supervised and unsupervised learning approaches are welcome, up to you. If 
 -The submission repository will contain the data subset, all source codes and results and a slide deck that describes the solution.
 - Participants will be asked to quote other’s work usage appropriately.
 
+## Credits
+This work was supported by the Italian Ministry of Enterprises and Made in Italy (MIMIT), within the 5G technology support program, on axis 1 “House of Emerging Technologies” (CTE), Project Name “Cagliari Digital Lab” (ID: G27F22000040008).
+
+We are grateful to CTE Cagliari Digital Lab , HPCQC Director Lidia Leoni at CRS4 and everyone that enabled the joint effort of CRS4 and Open Campus and the Qworld endorsement through Qitaly, and Ricky Young from Qbraid for making things possible.
+
+The data were made available by TIM and CRS4 within the CTE-Cagliari Digital Lab project framework. Other data are collected from public sources.
+
+The above datasets were selected and pre-mangled at CRS4 by Carlo Impagliazzo.
+
+The challenge design was created at CRS4 by Giuliana Siddi Moreau.

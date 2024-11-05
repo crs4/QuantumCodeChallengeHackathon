@@ -35,6 +35,6 @@ All you have to do is
 - Enjoy the challenge
   Learn something new about potential application of QC
 
-  ##Credits:
+## Credits:
   QC Apprentice challenges are designed by Manuela Profir, Lorenzo Pisani, Giuliana Siddi Moreau (mentors in the hackathon) and Ricky Young (Qbraid Mentor and almighty QML divinity)
 
